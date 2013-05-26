@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  tid: 1
+  tweet: MyText
+  username: MyString
+  publish_date: 2013-05-26
+
+two:
+  tid: 1
+  tweet: MyText
+  username: MyString
+  publish_date: 2013-05-26
