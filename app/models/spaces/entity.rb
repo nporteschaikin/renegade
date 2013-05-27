@@ -6,7 +6,7 @@ module Spaces
 		
 		validates :space, presence: true
 		validate :is_a_valid_entity
-	
+		
 		private
 		
 			def is_a_valid_entity

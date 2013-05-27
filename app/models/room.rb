@@ -1,11 +1,12 @@
 class Room < ActiveRecord::Base
 	
 	include Followable
-	include Items::Relationship
 	include Users::Relationship
 	include Spaces::Relationship
+	include Slug
 	
-	validates :slug, slug: true
+	has_many :items
+	
 	validates :name, presence: true
 
 end
