@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
 		
 		def method_missing(m, *args, &block)
 			if m =~ /(_following)$/
-				following.where(followed_type: m.to_s[/[a-z]{1,}/].singularize.camelize).includes(:followed)
+				following.where(followed_type: m.to_s[/[a-z]{1,}/].singularize.camelize)
 			else
 				super
 			end

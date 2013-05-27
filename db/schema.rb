@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20130527154809) do
 
   create_table "rooms", force: true do |t|
     t.integer  "user_id"
+    t.string   "slug"
     t.string   "name"
     t.text     "description"
     t.datetime "created_at"
