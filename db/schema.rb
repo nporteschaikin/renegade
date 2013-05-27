@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130527154809) do
+ActiveRecord::Schema.define(version: 20130527211244) do
 
   create_table "items", force: true do |t|
     t.integer  "user_id"
@@ -67,6 +67,15 @@ ActiveRecord::Schema.define(version: 20130527154809) do
 
   add_index "rooms", ["user_id"], name: "index_rooms_on_user_id"
 
+  create_table "rooms_spaces", id: false, force: true do |t|
+    t.integer "space_id", null: false
+    t.integer "room_id",  null: false
+  end
+
+  add_index "rooms_spaces", ["room_id"], name: "index_rooms_spaces_on_room_id"
+  add_index "rooms_spaces", ["space_id", "room_id"], name: "index_rooms_spaces_on_space_id_and_room_id", unique: true
+  add_index "rooms_spaces", ["space_id"], name: "index_rooms_spaces_on_space_id"
+
   create_table "sites", force: true do |t|
     t.string   "name"
     t.text     "description"
@@ -77,6 +86,17 @@ ActiveRecord::Schema.define(version: 20130527154809) do
     t.integer  "favicon_file_size"
     t.datetime "favicon_updated_at"
   end
+
+  create_table "spaces", force: true do |t|
+    t.integer  "user_id"
+    t.string   "slug"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "spaces", ["user_id"], name: "index_spaces_on_user_id"
 
   create_table "tags", force: true do |t|
     t.string   "tag"

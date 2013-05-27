@@ -2,10 +2,11 @@ class Room < ActiveRecord::Base
 	
 	include Followable
 	include Items::Relationship
+	include Users::Relationship
 	
-	belongs_to :user
+	has_and_belongs_to_many :spaces
 	
-	validates :slug, format: { with: /^[a-z][-a-z0-9]*$/ }
+	validates :slug, slug: true
 	validates :name, presence: true
 
 end
