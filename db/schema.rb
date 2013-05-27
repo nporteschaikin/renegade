@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130527211244) do
+ActiveRecord::Schema.define(version: 20130527214009) do
+
+  create_table "entities", force: true do |t|
+    t.integer  "space_id"
+    t.integer  "entity_id"
+    t.string   "entity_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "entities", ["entity_id", "entity_type"], name: "index_entities_on_entity_id_and_entity_type"
+  add_index "entities", ["space_id"], name: "index_entities_on_space_id"
 
   create_table "items", force: true do |t|
     t.integer  "user_id"
@@ -66,15 +77,6 @@ ActiveRecord::Schema.define(version: 20130527211244) do
   end
 
   add_index "rooms", ["user_id"], name: "index_rooms_on_user_id"
-
-  create_table "rooms_spaces", id: false, force: true do |t|
-    t.integer "space_id", null: false
-    t.integer "room_id",  null: false
-  end
-
-  add_index "rooms_spaces", ["room_id"], name: "index_rooms_spaces_on_room_id"
-  add_index "rooms_spaces", ["space_id", "room_id"], name: "index_rooms_spaces_on_space_id_and_room_id", unique: true
-  add_index "rooms_spaces", ["space_id"], name: "index_rooms_spaces_on_space_id"
 
   create_table "sites", force: true do |t|
     t.string   "name"

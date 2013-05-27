@@ -2,7 +2,7 @@ class Space < ActiveRecord::Base
 	
 	include Users::Relationship
 	
-	has_and_belongs_to_many :rooms
+	has_many :entities, class_name: "Spaces::Entity"
 	
 	validates :slug, slug: true
 	validates :name, presence: true

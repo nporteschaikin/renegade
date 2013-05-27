@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
 	
 	has_many :following, class_name: "Relationship"
 	include Followable
+	
+	include Spaces::Relationship
 
 	before_save { |user| user.email = email.downcase }
 	before_save :create_remember_token
