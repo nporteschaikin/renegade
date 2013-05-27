@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130526225903) do
+ActiveRecord::Schema.define(version: 20130527154809) do
 
   create_table "items", force: true do |t|
     t.integer  "user_id"
@@ -44,6 +44,17 @@ ActiveRecord::Schema.define(version: 20130526225903) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "relationships", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "followed_id"
+    t.string   "followed_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "relationships", ["followed_id", "followed_type"], name: "index_relationships_on_followed_id_and_followed_type"
+  add_index "relationships", ["user_id"], name: "index_relationships_on_user_id"
 
   create_table "rooms", force: true do |t|
     t.integer  "user_id"

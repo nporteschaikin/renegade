@@ -1,7 +1,10 @@
 class User < ActiveRecord::Base
   
 	has_secure_password
-  
+	
+	has_many :following, class_name: "Relationship"
+	include Followable
+
 	before_save { |user| user.email = email.downcase }
 	before_save :create_remember_token
 	
@@ -18,6 +21,14 @@ class User < ActiveRecord::Base
   
 		def create_remember_token
 			self.remember_token = SecureRandom.urlsafe_base64
+		end
+		
+		def method_missing(m, *args, &block)
+			if m =~ /(_following)$/
+				following.where(followed_type: m.to_s[/[a-z]{1,}/].singularize.camelize).includes(:followed)
+			else
+				super
+			end
 		end
   
 end
