@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130528042921) do
+ActiveRecord::Schema.define(version: 20130528123351) do
 
   create_table "entities", force: true do |t|
     t.integer  "space_id"
@@ -137,6 +137,18 @@ ActiveRecord::Schema.define(version: 20130528042921) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "remember_token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "videos", force: true do |t|
+    t.string   "type"
+    t.string   "name"
+    t.string   "author"
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

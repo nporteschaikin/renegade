@@ -12,17 +12,17 @@ module Items
 		
 		before_save do
 			case url
-				when /^(https?:\/\/(www.)?twitter.com\/)[A-Za-z0-9_]+(\/status\/)[0-9]{1,}(\/)?$/
-					self.linked = Links::Tweet.find_or_create_by(tid: url.match(/[0-9]{1,}$/).to_s)
+			when /^(https?:\/\/(www.)?twitter.com\/)[A-Za-z0-9_]+(\/status\/)[0-9]{1,}(\/)?$/
+				self.linked = Links::Tweet.find_or_create_by(tid: url.match(/[0-9]{1,}$/).to_s)
+			else
+				exists = Link.find_by_url(url)
+				case url
+				when /(?:jpe?g|gif|png|ico)$/
+					self.linked = exists ? exists : Links::Photo.create(url: url)
 				else
-					exists = Link.find_by_url(url)
-					case url
-						when /(?:jpe?g|gif|png|ico)$/
-							self.linked = exists ? exists : Links::Photo.create(url: url)
-						else
-							self.linked = exists ? exists : Links::Site.create(url: url)
-						end
+					self.linked = exists ? exists : Links::Site.create(url: url)
 				end
+			end
 		end
 	
 	end
