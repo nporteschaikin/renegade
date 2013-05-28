@@ -1,0 +1,5 @@
+class SpacesController < ApplicationController
+	
+	
+	
+end
