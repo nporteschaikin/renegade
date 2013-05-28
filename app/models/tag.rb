@@ -1,8 +1,6 @@
 class Tag < ActiveRecord::Base
-  
-	include Spaces::Relationship
 	
-	belongs_to :tagged, polymorphic: true
-	validates :tag, presence: true, uniqueness: { scope: :tagged }
-  
+	include Spaces::Relationship
+	validates :tag, presence: true, length: { maximum: 18 }
+	
 end

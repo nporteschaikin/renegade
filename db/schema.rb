@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130527214009) do
+ActiveRecord::Schema.define(version: 20130528042921) do
 
   create_table "entities", force: true do |t|
     t.integer  "space_id"
@@ -100,15 +100,22 @@ ActiveRecord::Schema.define(version: 20130527214009) do
 
   add_index "spaces", ["user_id"], name: "index_spaces_on_user_id"
 
-  create_table "tags", force: true do |t|
-    t.string   "tag"
+  create_table "tag_relationships", force: true do |t|
+    t.integer  "tag_id"
     t.integer  "tagged_id"
     t.string   "tagged_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "tags", ["tagged_id", "tagged_type"], name: "index_tags_on_tagged_id_and_tagged_type"
+  add_index "tag_relationships", ["tag_id"], name: "index_tag_relationships_on_tag_id"
+  add_index "tag_relationships", ["tagged_id", "tagged_type"], name: "index_tag_relationships_on_tagged_id_and_tagged_type"
+
+  create_table "tags", force: true do |t|
+    t.string   "tag"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tweets", force: true do |t|
     t.integer  "tid",                        limit: 8
