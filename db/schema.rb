@@ -143,8 +143,15 @@ ActiveRecord::Schema.define(version: 20130528123351) do
 
   create_table "videos", force: true do |t|
     t.string   "type"
+    t.string   "vid"
     t.string   "name"
     t.string   "author"
+    t.integer  "aid",                        limit: 8
+    t.text     "description"
+    t.string   "profile_image_file_name"
+    t.string   "profile_image_content_type"
+    t.integer  "profile_image_file_size"
+    t.datetime "profile_image_updated_at"
     t.string   "cover_file_name"
     t.string   "cover_content_type"
     t.integer  "cover_file_size"

@@ -14,6 +14,10 @@ module Items
 			case url
 			when /^(https?:\/\/(www.)?twitter.com\/)[A-Za-z0-9_]+(\/status\/)[0-9]{1,}(\/)?$/
 				self.linked = Links::Tweet.find_or_create_by(tid: url.match(/[0-9]{1,}$/).to_s)
+			when Links::Youtube.regex
+				self.linked = Links::Youtube.find_or_create_by(vid: url.match(Links::Youtube.id).to_s)
+			when Links::Vimeo.regex
+				self.linked = Links::Vimeo.find_or_create_by(vid: url.match(Links::Vimeo.id).to_s)
 			else
 				exists = Link.find_by_url(url)
 				case url
