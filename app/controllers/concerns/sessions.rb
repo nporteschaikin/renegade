@@ -22,6 +22,10 @@ module Sessions
 	def current_user=(user)
 		@current_user = user
 	end
+	
+	def correct_user
+		redirect_to root_path unless current_user.id == params[:id]
+	end
   
 	def sign_out
 		self.current_user = nil
