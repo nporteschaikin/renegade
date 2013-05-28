@@ -1,9 +1,12 @@
 module Items
 	class LinksController < Controller
 		
+		before_filter { |r| @link = Link.find(params[:id]); r.redirect_incorrect_user @link.item.user }, only: [:edit, :update]
+		
 		def new; @link = Link.new(params[:link]); end
 		
 		def create
+			params[:link][:item_attributes][:user] = current_user
 			@link = Link.new(params[:link])
 			if @link.save
 				redirect_to items_link_path(@link)

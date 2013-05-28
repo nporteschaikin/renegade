@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 	
-	before_filter :correct_user, only: [:create, :edit, :update]
+	before_filter { |r| @user = User.find(params[:id]); r.redirect_incorrect_user @user }, only: [:edit, :update]
 	
 	def new; @user = User.new(params[:user]); end
 	
@@ -13,14 +13,13 @@ class UsersController < ApplicationController
 		end
 	end
 	
-	def edit; @user = User.find(params[:id]); end
+	def edit; end
 	
 	def update
-		@user = User.find(params[:id])
 		@user.update_attributes(params[:link])
 		redirect_to user_path(@user)
 	end
 	
-	def show; @link = Link.find(params[:id]); end
+	def show; @user = User.find(params[:id]); end
 		
 end

@@ -23,8 +23,8 @@ module Sessions
 		@current_user = user
 	end
 	
-	def correct_user
-		redirect_to root_path unless current_user.id == params[:id]
+	def redirect_incorrect_user(user)
+		redirect_to root_path unless current_user?(user)
 	end
   
 	def sign_out
