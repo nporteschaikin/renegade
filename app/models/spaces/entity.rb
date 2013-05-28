@@ -3,6 +3,7 @@ module Spaces
 		
 		belongs_to :space
 		belongs_to :entity, polymorphic: true
+		has_many :items, through: :entity
 		
 		validates :space, presence: true
 		validate :is_a_valid_entity
