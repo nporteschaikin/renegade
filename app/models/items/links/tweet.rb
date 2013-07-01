@@ -2,14 +2,6 @@ module Items
 	module Links
 		class Tweet < ActiveRecord::Base
 			
-			cattr_accessor :regex do
-				/^(https?:\/\/(www.)?twitter.com\/)[A-Za-z0-9_]+(\/status\/)[0-9]{1,}(\/)?$/
-			end
-			
-			cattr_accessor :id do
-				/[0-9]{1,}$/
-			end
-			
 			attr_accessor :response
 			validates :tid, numericality: true
 			has_attached_file :profile_image

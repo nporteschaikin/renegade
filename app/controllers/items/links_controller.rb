@@ -1,29 +1,35 @@
 module Items
-	class LinksController < Controller
+	class LinksController < ApplicationController
 		
-		before_filter { |r| @link = Link.find(params[:id]); r.redirect_incorrect_user @link.item.user }, only: [:edit, :update]
+		before_filter :signed_in_user, except: [:index, :show]
+		before_filter :redirect_incorrect_user, only: [:edit, :update]
 		
-		def new; @link = Link.new(params[:link]); end
+		def new; @link = Link.new(params[:items_link]); end
 		
 		def create
-			params[:link][:item_attributes][:user] = current_user
-			@link = Link.new(params[:link])
-			if @link.save
-				redirect_to items_link_path(@link)
-			else
-				render 'new'
-			end
+			@link = Items::Link.new(items_link_params)
+			@link.save ? redirect_to(items_link_path(@link)) : render('new')
 		end
 		
-		def edit; @link = Link.find(params[:id]); end
+		def edit; end
 		
 		def update
-			@link = @link = Link.find(params[:id])
-			@link.update_attributes(params[:link])
+			@link.update_attributes(params[:items_link])
 			redirect_to items_link_path(@link)
 		end
 		
 		def show; @link = Link.find(params[:id]); end
+		
+		private 
+		
+			def items_link_params
+				params.require(:items_link).permit(:url, :room).merge!(user: current_user)
+			end
+			
+			def redirect_incorrect_user
+				@link = Link.find params[:id]
+				redirect_incorrect_user @link.item.user
+			end
 		
 	end
 end

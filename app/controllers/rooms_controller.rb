@@ -1,16 +1,10 @@
 class RoomsController < ApplicationController
 	
-	before_filter { |r| @room = Room.find(params[:id]); r.redirect_incorrect_user @room.user }, only: [:edit, :update]
-	
 	def new; @room = Room.new(params[:room]); end
 	
 	def create
 		@room = current_user.rooms.new(params[:room])
-		if @room.save
-			redirect_to items_link_path(@link)
-		else
-			render 'new'
-		end
+		@room.save ? redirect_to(items_link_path(@link)) : render('new')
 	end
 	
 	def edit; end

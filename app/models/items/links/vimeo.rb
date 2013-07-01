@@ -5,14 +5,6 @@ module Items
 			cattr_accessor :api do
 				'http://vimeo.com/api/v2/video/*.json'
 			end
-			
-			cattr_accessor :regex do
-				/^(https?:\/\/(www.)?vimeo.com\/)[0-9]{1,}(\/)?$/
-			end
-			
-			cattr_accessor :id do
-				/[0-9]{1,}/
-			end
 				
 			before_save do
 				self.name = self.response.first["title"]

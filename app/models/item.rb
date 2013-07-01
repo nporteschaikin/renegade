@@ -5,6 +5,7 @@ class Item < ActiveRecord::Base
 	
 	belongs_to :room
 	belongs_to :item, polymorphic: true
+	default_scope {includes(:item)}
 	
 	validates :room, presence: true
 		
