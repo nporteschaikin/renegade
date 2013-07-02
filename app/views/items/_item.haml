@@ -1,6 +1,5 @@
-%section
-	%article
-		= render item.item
+%article
+	= render item.item
 	%aside
 		= link_to item.user.username, item.user
 		= "#{time_ago_in_words item.created_at} ago"

@@ -2,5 +2,4 @@
 	%h2
 		= link_to site.name, url
 	%h4
-		= image_tag site.favicon.url(:thumb), class: "icon" if site.favicon.present?
-		%span= URI.parse(url).host
+		= URI.parse(url).host

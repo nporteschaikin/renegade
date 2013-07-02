@@ -1,31 +1,37 @@
+@import 'core/*';
+
 body, input, textarea {
 	font: {
 		family: "Helvetica Neue", "Helvetica", sans-serif;
+		size: 15px;
+	}
+	line: {
+		height: 22px;
 	}
 	-webkit-font-smoothing: antialiased;
 	-webkit-text-size-adjust: 100%;
 }
 
-.grid {
-	> section {
+h4 {
+	font: {
+		size: 11px;
+	}
+	line: {
+		height: 18px;
+	}
+}
+
+.items {
+	aside {
 		font: {
-			size: 11px;
-		}
-		line: {
-			height: 18px;
+			size: 13px;
 		}
 	}
 }
 
-h2 {
+h1, h2, h3, h4, h5, h6 {
+	color: $black;
 	font: {
-		size: 13px;
 		weight: 500;
-	}
-	line: {
-		height: 20px;
-	}
-	letter: {
-		spacing: -0.03em;
 	}
 }

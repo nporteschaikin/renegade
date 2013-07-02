@@ -5,7 +5,7 @@ class Item < ActiveRecord::Base
 	
 	belongs_to :room
 	belongs_to :item, polymorphic: true
-	default_scope {includes(:item)}
+	default_scope {includes(:item).order("id DESC")}
 	
 	validates :room, presence: true
 		
