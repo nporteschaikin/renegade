@@ -14,6 +14,6 @@ class RoomsController < ApplicationController
 		redirect_to room_path(@room)
 	end
 	
-	def show; @room = Room.find(params[:id]); end
+	def show; @room = Room.find_by_slug(params[:id]); end
 	
 end

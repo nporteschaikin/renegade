@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130528123351) do
+ActiveRecord::Schema.define(version: 20130701233323) do
 
   create_table "entities", force: true do |t|
     t.integer  "space_id"
@@ -87,6 +87,10 @@ ActiveRecord::Schema.define(version: 20130528123351) do
     t.string   "favicon_content_type"
     t.integer  "favicon_file_size"
     t.datetime "favicon_updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "spaces", force: true do |t|

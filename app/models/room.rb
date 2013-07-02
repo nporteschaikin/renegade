@@ -8,5 +8,7 @@ class Room < ActiveRecord::Base
 	has_many :items
 	
 	validates :name, presence: true
+	
+	def to_param; self.slug; end
 
 end

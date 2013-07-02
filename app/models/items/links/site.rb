@@ -5,13 +5,15 @@ module Items
 			include Items::Links::UrlOpen
 			
 			attr_accessor :parsed
-			has_attached_file :favicon
+			has_attached_file :favicon, styles: {thumb: "16x16#"}
+			has_attached_file :photo, styles: {thumb: "16x16#"}
 			
 			before_save do
 				self.parsed = Nokogiri::HTML(self.response)
 				self.name = get_name
 				self.description = get_description
 				self.favicon = get_favicon
+				self.photo = get_photo
 			end
 			
 			private 
@@ -30,6 +32,11 @@ module Items
 					unless favicon.nil?
 						URI.parse(self.url).merge(favicon[:content] || favicon[:href])
 					end
+				end
+				
+				def get_photo
+					photo = self.parsed.at('meta[@property="og:image"]')
+					URI.parse(photo[:content]) unless photo.nil?
 				end
 			
 		end

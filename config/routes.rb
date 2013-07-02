@@ -7,6 +7,7 @@ Renegade::Application.routes.draw do
 	end
 	
 	resources :rooms
+	resources :users
 	
 	resources :sessions, only: :create
 	get '/in' => 'sessions#new'
