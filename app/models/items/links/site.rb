@@ -5,6 +5,8 @@ module Items
 			include Items::Links::UrlOpen
 			
 			attr_accessor :parsed
+			has_many :open_graph_tags, class_name: "Items::Links::OpenGraphTag"
+			default_scope {includes(:open_graph_tags)}
 			has_attached_file :favicon, styles: {thumb: "16x16#"}
 			has_attached_file :photo, styles: {thumb: "16x16#"}
 			
@@ -16,7 +18,12 @@ module Items
 				self.photo = get_photo
 			end
 			
-			private 
+			def title; self.og_title || self.name; end
+			def source; self.og_site_name; end
+			
+			after_save :create_open_graph_tags
+			
+			private
 			
 				def get_name
 					self.parsed.title
@@ -37,6 +44,22 @@ module Items
 				def get_photo
 					photo = self.parsed.at('meta[@property="og:image"]')
 					URI.parse(photo[:content]) unless photo.nil?
+				end
+				
+				def create_open_graph_tags
+					meta_tags = self.parsed.css('meta')
+					meta_tags.each do |m|
+						self.open_graph_tags.create(name: m.attribute('property').to_s, content: m.attribute('content').to_s) if m.attribute('property') && m.attribute('property').to_s.match(/^og:(.+)$/i)
+					end
+				end
+				
+				def method_missing(m, *args, &block)
+					if m =~ /(og_)/
+						tag = self.open_graph_tags.find{|o| o.name == m.to_s[3..-1]}
+						tag.content unless tag.nil?
+					else
+						super
+					end
 				end
 			
 		end

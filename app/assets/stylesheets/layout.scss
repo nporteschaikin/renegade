@@ -5,7 +5,9 @@
 }
 
 body {
-	padding: $margin-c $margin-c $margin-c ($nav-width + $margin-c);
+	padding: {
+		left: ($nav-width);
+	}
 	background: $white;
 	color: $asbestos;
 }
@@ -21,8 +23,10 @@ a {
 	height: 100%;
 	top: 0;
 	left: 0;
-	background: $clouds;
-	padding: $margin-c;
+	padding: $margin-d;
+	border: {
+		right: 1px solid $clouds;
+	}
 	ul {
 		width: 100%;
 		height: 100%;
@@ -45,13 +49,22 @@ a {
 	}
 	article {
 		border: {
-			bottom: 1px solid $silver;
+			bottom: 1px solid $clouds;
 		}
-		padding: {
-			bottom: $margin-b;
+		> div {
+			padding: $margin-d;
+			position: relative;
+			width: $container-width - $nav-width;
 		}
-		margin: {
-			bottom: $margin-b;
+		h1 {
+			margin: {
+				bottom: $margin-a / 2;
+			}
 		}
 	}
+/*	aside {
+		position: absolute;
+		bottom: $margin-c;
+		right: $margin-c;
+	}*/
 }

@@ -1,5 +1,5 @@
 %hgroup
+	%h1
+		= link_to site.title, url
 	%h2
-		= link_to site.name, url
-	%h4
-		= URI.parse(url).host
+		= link_to site.source || URI.parse(url).normalize.host, url

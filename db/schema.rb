@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130701233323) do
+ActiveRecord::Schema.define(version: 20130702180008) do
 
   create_table "entities", force: true do |t|
     t.integer  "space_id"
@@ -46,6 +46,16 @@ ActiveRecord::Schema.define(version: 20130701233323) do
   end
 
   add_index "links", ["linked_id", "linked_type"], name: "index_links_on_linked_id_and_linked_type"
+
+  create_table "open_graph_tags", force: true do |t|
+    t.integer  "site_id"
+    t.string   "name"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "open_graph_tags", ["site_id"], name: "index_open_graph_tags_on_site_id"
 
   create_table "photos", force: true do |t|
     t.string   "image_file_name"
