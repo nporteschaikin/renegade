@@ -1,6 +1,7 @@
 class Space < ActiveRecord::Base
 	
 	include Followable
+	include Impressionable
 	include Users::Relationship
 	include Slug
 	

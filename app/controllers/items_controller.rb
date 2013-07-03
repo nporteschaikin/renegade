@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
 	
-	def show; @item = Item.find(params[:id]); end
+	def show; @item = Item.find_and_impress(params[:id], request); end
 	
 end
