@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 	before_save :create_remember_token
 	
 	has_many :rooms, dependent: :destroy
+	has_many :spaces, dependent: :destroy
 	has_many :items, dependent: :destroy
 	
 	validates :name, presence: true, length: { maximum: 50 }

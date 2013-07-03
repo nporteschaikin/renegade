@@ -23,7 +23,7 @@ module Items
 		private 
 		
 			def items_link_params
-				params.require(:items_link).permit(:url, :room).merge!(user: current_user)
+				params.require(:items_link).permit(:url, :room, :message).merge!(user: current_user)
 			end
 			
 			def redirect_incorrect_user

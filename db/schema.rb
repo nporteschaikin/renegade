@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20130702180008) do
     t.integer  "room_id"
     t.integer  "item_id"
     t.string   "item_type"
+    t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

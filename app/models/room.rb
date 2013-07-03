@@ -6,7 +6,6 @@ class Room < ActiveRecord::Base
 	include Slug
 	
 	has_many :items
-	
 	validates :name, presence: true
 	
 	def to_param; self.slug; end

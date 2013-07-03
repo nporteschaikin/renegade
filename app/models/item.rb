@@ -8,5 +8,6 @@ class Item < ActiveRecord::Base
 	default_scope {includes(:item).order("id DESC")}
 	
 	validates :room, presence: true
+	validates :message, length: { minimum: 1, maximum: 140 }
 		
 end
