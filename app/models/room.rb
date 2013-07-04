@@ -1,7 +1,7 @@
 class Room < ActiveRecord::Base
 	
 	include Followable
-	include Impressionable
+	include Visible
 	include Users::Relationship
 	include Spaces::Relationship
 	include Slug

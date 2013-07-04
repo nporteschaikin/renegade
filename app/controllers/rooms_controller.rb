@@ -15,7 +15,7 @@ class RoomsController < ApplicationController
 	end
 	
 	def show 
-		@room = Room.find_by_slug_and_impress(params[:id], request)
+		@room = Room.find_by_slug_and_visit(params[:id], request)
 	end
 	
 end

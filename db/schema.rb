@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130703120519) do
+ActiveRecord::Schema.define(version: 20130704123208) do
 
   create_table "entities", force: true do |t|
     t.integer  "space_id"
@@ -24,17 +24,6 @@ ActiveRecord::Schema.define(version: 20130703120519) do
   add_index "entities", ["entity_id", "entity_type"], name: "index_entities_on_entity_id_and_entity_type"
   add_index "entities", ["space_id"], name: "index_entities_on_space_id"
 
-  create_table "impressions", force: true do |t|
-    t.integer  "viewed_id"
-    t.string   "viewed_type"
-    t.string   "ip"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.datetime "created_at"
-  end
-
-  add_index "impressions", ["viewed_id", "viewed_type"], name: "index_impressions_on_viewed_id_and_viewed_type"
-
   create_table "items", force: true do |t|
     t.integer  "user_id"
     t.integer  "room_id"
@@ -43,8 +32,7 @@ ActiveRecord::Schema.define(version: 20130703120519) do
     t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "impressions_count", default: 0
-    t.integer  "uniques_count",     default: 0
+    t.integer  "visitors_count", default: 0
   end
 
   add_index "items", ["item_id", "item_type"], name: "index_items_on_item_id_and_item_type"
@@ -98,8 +86,7 @@ ActiveRecord::Schema.define(version: 20130703120519) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "impressions_count", default: 0
-    t.integer  "uniques_count",     default: 0
+    t.integer  "visitors_count", default: 0
   end
 
   add_index "rooms", ["user_id"], name: "index_rooms_on_user_id"
@@ -126,8 +113,7 @@ ActiveRecord::Schema.define(version: 20130703120519) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "impressions_count", default: 0
-    t.integer  "uniques_count",     default: 0
+    t.integer  "visitors_count", default: 0
   end
 
   add_index "spaces", ["user_id"], name: "index_spaces_on_user_id"
@@ -147,8 +133,7 @@ ActiveRecord::Schema.define(version: 20130703120519) do
     t.string   "tag"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "impressions_count", default: 0
-    t.integer  "uniques_count",     default: 0
+    t.integer  "visitors_count", default: 0
   end
 
   create_table "tweets", force: true do |t|
@@ -193,5 +178,17 @@ ActiveRecord::Schema.define(version: 20130703120519) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "visitors", force: true do |t|
+    t.integer  "visited_id"
+    t.string   "visited_type"
+    t.string   "protocol"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "visitors", ["visited_id", "visited_type"], name: "index_visitors_on_visited_id_and_visited_type"
 
 end

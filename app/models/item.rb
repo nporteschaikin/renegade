@@ -2,7 +2,7 @@ class Item < ActiveRecord::Base
 	
 	include Users::Relationship
 	include Tags::Relationship
-	include Impressionable
+	include Visible
 	
 	belongs_to :room
 	belongs_to :item, polymorphic: true
