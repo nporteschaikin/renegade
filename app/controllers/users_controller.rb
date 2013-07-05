@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 	
-	before_filter { |r| @user = User.find(params[:id]); r.redirect_incorrect_user @user }, only: [:edit, :update]
-	
 	def new; @user = User.new(params[:user]); end
 	
 	def create
