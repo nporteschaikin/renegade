@@ -1,8 +1,9 @@
 @import 'core/*';
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700,700italic,900,400italic,300");
 
 body, input, textarea {
 	font: {
-		family: "Helvetica Neue", "Helvetica", sans-serif;
+		family: Lato, sans-serif;
 		size: 15px;
 	}
 	line: {
@@ -12,53 +13,45 @@ body, input, textarea {
 	-webkit-text-size-adjust: 100%;
 }
 
-
-h1 {
-	font: {
-		size: 30px;
-		weight: 600;
-	}
-	line: {
-		height: 38px;
-	}
-	letter: {
-		spacing: -0.05em;
-	}
-}
-
 h2 {
 	font: {
-		size: 20px;
-		weight: 300;
+		size: 24px;
+		weight: 700;
 	}
 	line: {
-		height: 28px;
-	}
-	letter: {
-		spacing: 0em;
+		height: 34px;
 	}
 }
 
-h4 {
+h3 {
 	font: {
-		size: 11px;
+		size: 18px;
+		weight: 200;
 	}
 	line: {
-		height: 18px;
+		height: 25px;
+	}
+}
+
+aside {
+	font: {
+		size: 11px;
+		weight: 100;
+	}
+	line {
+		height: 1;
 	}
 }
 
 .items {
-	aside {
-		font: {
-			size: 11px;
-		}
-		line: {
-			height: 1;
+	article {
+		&:first-child {
+			font: {
+				size: 15px;
+			}
+			line: {
+				height: 21px;
+			}
 		}
 	}
-}
-
-h1, h2, h3, h4, h5, h6 {
-	color: $black;
 }

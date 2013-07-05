@@ -20,6 +20,7 @@ module Items
 			
 			def title; self.og_title || self.name; end
 			def source; self.og_site_name; end
+			def excerpt; self.og_description || self.description; end
 			
 			after_save :create_open_graph_tags
 			

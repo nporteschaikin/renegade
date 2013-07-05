@@ -5,10 +5,11 @@ class Item < ActiveRecord::Base
 	include Visible
 	
 	belongs_to :room
-	belongs_to :item, polymorphic: true
-	default_scope {includes(:item).order("id DESC")}
+	belongs_to :object, polymorphic: true
+	
+	default_scope {includes(:object).order("id DESC")}
 	
 	validates :room, presence: true
 	validates :message, length: { minimum: 1, maximum: 140 }
-		
+
 end

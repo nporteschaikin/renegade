@@ -1,2 +1,3 @@
 = provide(:title, @room.name)
+= render 'composer/composer', object: @item if @item
 = render 'items/items', items: @room.items

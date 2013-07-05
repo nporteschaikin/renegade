@@ -2,14 +2,12 @@
 
 * {
 	@include prefixer(box-sizing, border-box);
+	outline: none;
 }
 
 body {
-	padding: {
-		left: ($nav-width);
-	}
-	background: $white;
-	color: $asbestos;
+	background: $clouds;
+	color: $black;
 }
 
 a {
@@ -17,54 +15,66 @@ a {
 	text-decoration: none;
 }
 
-#nav {
-	@extend %position-fixed;
-	width: $nav-width;
-	height: 100%;
-	top: 0;
-	left: 0;
-	padding: $margin-d;
-	border: {
-		right: 1px solid $clouds;
-	}
-	ul {
-		width: 100%;
-		height: 100%;
+.items {
+	> section {
 		position: relative;
 	}
-	li {
+	article {
+		padding: $margin-b;
 		&:first-child {
+			background: $white;
 			position: absolute;
-			bottom: 0;
-			width: 100%;
+			left: 0;
+			top: 0;
+			height: 100%;
+			width: $item-info-width;
+			font: {
+				size: 11px;
+			}
+			border: {
+				bottom: 1px solid $clouds;
+			}
+		}
+		+ article {
+			padding: $margin-b;
+			padding: {
+				left: $item-info-width + $margin-b;
+			}
+			border: {
+				bottom: 1px solid $silver;
+			}
 		}
 	}
-}
-
-.items {
-	hgroup {
+	p {
+		padding: 0;
+		margin: 0 0 $margin-a/2 0;
+	}
+	h3 {
 		margin: {
 			bottom: $margin-a;
 		}
 	}
-	article {
+}
+
+.composer {
+	background: $concrete;
+	padding: $margin-b;
+	section {
+		@include prefixer(border-radius, 5px);
+		border: 3px solid $asbestos;
+		background: $white;
+	}
+	input, textarea {
+		width: 100%;
+		margin: 0;
+		border: 0;
+		background: transparent;
+		padding: $input-padding;
+		display: block;
+	}
+	input {
 		border: {
-			bottom: 1px solid $clouds;
-		}
-		> div {
-			padding: $margin-d;
-			position: relative;
-			width: $container-width - $nav-width;
-		}
-		h1 {
-			margin: {
-				bottom: $margin-a / 2;
-			}
+			bottom: 1px solid $silver;
 		}
 	}
-/*	aside {
-		position: absolute;
-		bottom: $margin-c;
-		right: $margin-c;
-	}*/
 }

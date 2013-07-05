@@ -1,5 +1,8 @@
-$container-width: 1400px;
-$nav-width: 500px;
+$container-width: 1024px;
+$nav-width: 300px;
+
+$item-info-width: 300px;
+$input-padding: 5px 8px;
 
 $margin-a: 12px;
 $margin-b: $margin-a * 2;
@@ -21,3 +24,9 @@ $asbestos: #7F8C8D;
 /* dark blues */
 $wetasphalt: #34495E;
 $midnightblue: #2C3E50;
+
+/* light yellows */
+$sunflower: #F1C40F;
+
+/* light greens */
+$emerald: #2ECC71;

@@ -2,11 +2,15 @@ Renegade::Application.routes.draw do
   
 	root to: 'home#index'
 	
-	namespace :items do
-		resources :links
+	resources :rooms do
+		collection do
+			get 'popular(/when/:time)(/where/:location)', action: :popular
+		end
+		member do
+			match 'composer/link', to: 'composer#link', via: :post
+		end
 	end
 	
-	resources :rooms
 	resources :users
 	
 	resources :sessions, only: :create

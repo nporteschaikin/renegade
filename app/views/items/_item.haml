@@ -1,6 +1,7 @@
-%article
-	%div 
-		= render item.item
+%section
+	%article
+		= simple_format item.message
 		%aside
-			= raw "#{link_to item.user.username, item.user} #{time_ago_in_words item.created_at} ago in #{link_to item.room.slug, room_path(item.room)}"
-		
+			= raw "#{link_to item.user.username, item.user} posted this #{time_ago_in_words item.created_at} ago"
+	%article
+		= render item.object
