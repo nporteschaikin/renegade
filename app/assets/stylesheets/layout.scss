@@ -57,6 +57,13 @@ a {
 			bottom: $margin-a;
 		}
 	}
+	h2, p {
+		a {
+			text: {
+				decoration: underline;
+			}
+		}
+	}
 }
 
 .composer {
