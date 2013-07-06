@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130704123208) do
+ActiveRecord::Schema.define(version: 20130706203237) do
+
+  create_table "comments", force: true do |t|
+    t.integer  "commented_id",   default: 0
+    t.string   "commented_type", default: "0"
+    t.integer  "user_id"
+    t.integer  "in_reply_to_id", default: 0
+    t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["commented_id", "commented_type"], name: "index_comments_on_commented_id_and_commented_type"
+  add_index "comments", ["in_reply_to_id"], name: "index_comments_on_in_reply_to_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "entities", force: true do |t|
     t.integer  "space_id"

@@ -12,6 +12,8 @@ Renegade::Application.routes.draw do
 	end
 	
 	resources :tags, only: :show
+	resources :items, only: :show
+	resources :comments, only: :show
 	
 	resources :users
 	

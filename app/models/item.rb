@@ -2,6 +2,7 @@ class Item < ActiveRecord::Base
 	
 	include Users::Relationship
 	include Tags::Relationship
+	include Comments::Relationship
 	include Visible
 	
 	belongs_to :room

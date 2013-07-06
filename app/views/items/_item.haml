@@ -2,6 +2,6 @@
 	%article
 		= simple_format tagged(item.message)
 		%aside
-			= raw "#{link_to item.user.username, item.user} posted this #{time_ago_in_words item.created_at} ago"
+			= raw "#{link_to item.user.username, item.user} posted this #{link_to time_ago_in_words(item.created_at), item} ago"
 	%article
 		= render item.item

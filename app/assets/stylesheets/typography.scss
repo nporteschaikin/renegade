@@ -43,14 +43,16 @@ aside {
 	}
 }
 
-.items {
-	article {
-		&:first-child {
-			font: {
-				size: 15px;
-			}
-			line: {
-				height: 21px;
+section {
+	&.items {
+		article {
+			&:first-child {
+				font: {
+					size: 15px;
+				}
+				line: {
+					height: 21px;
+				}
 			}
 		}
 	}
