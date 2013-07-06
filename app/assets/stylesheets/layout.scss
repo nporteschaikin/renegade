@@ -8,6 +8,9 @@
 body {
 	background: $clouds;
 	color: $black;
+	padding: {
+		top: 58px;
+	}
 }
 
 a {
@@ -75,6 +78,26 @@ a {
 	input {
 		border: {
 			bottom: 1px solid $silver;
+		}
+	}
+}
+
+header {
+	@extend %position-fixed;
+	top: 0;
+	z-index: 10;
+	width: 100%;
+	background: $black;
+	padding: $margin-a $margin-b;
+	color: $white;
+	hgroup {
+		h2 {
+			margin: {
+				right: $margin-a;
+			}
+		}
+		h2, h3 {
+			display: inline-block;
 		}
 	}
 }

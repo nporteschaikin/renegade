@@ -4,7 +4,7 @@ module Items
 		include Relationship
 		
 		belongs_to :linked, polymorphic: true
-		validates :url, url: true
+		validates :url, url: true, uniqueness: {case_sensitive: false}
 		default_scope {includes(:linked)}
 		
 		after_validation do
@@ -19,14 +19,10 @@ module Items
 				self.linked = Links::Youtube.find_or_create_by(vid: url.match(/((\w|-){11})(?:\S+)?/).to_s)
 			when /^(https?:\/\/(www.)?vimeo.com\/)[0-9]{1,}(\/)?$/
 				self.linked = Links::Vimeo.find_or_create_by(vid: url.match(/[0-9]{1,}/).to_s)
+			when /(?:jpe?g|gif|png|ico)$/
+				self.linked = Links::Photo.create(url: url)
 			else
-				exists = Link.unscoped.find_by_url(url)
-				case url
-				when /(?:jpe?g|gif|png|ico)$/
-					self.linked = exists ? exists : Links::Photo.create(url: url)
-				else
-					self.linked = exists ? exists : Links::Site.create(url: url)
-				end
+				self.linked = Links::Site.create(url: url)
 			end
 		end
 	

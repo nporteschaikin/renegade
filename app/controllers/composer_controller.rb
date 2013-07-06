@@ -2,7 +2,7 @@ class ComposerController < ApplicationController
 	
 	def link
 		@room = Room.find_by_slug params[:id]
-		@item = @room.items.create item_params.merge!(object: Items::Link.new(link_params), user: current_user)
+		@item = @room.items.create item_params.merge!(item: Items::Link.unscoped.find_or_initialize_by(link_params), user: current_user)
 		save_and_respond(@item)
 	end
 	

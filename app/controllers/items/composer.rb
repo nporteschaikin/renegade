@@ -9,7 +9,7 @@ module Items
 		end
 		
 		def link
-			#self.item.object = Items::Link.new
+			#self.item.item = Items::Link.new
 			return self.item
 		end
 		

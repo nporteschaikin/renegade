@@ -1,7 +1,7 @@
 %section
 	%article
-		= simple_format item.message
+		= tagged(item.message)
 		%aside
 			= raw "#{link_to item.user.username, item.user} posted this #{time_ago_in_words item.created_at} ago"
 	%article
-		= render item.object
+		= render item.item

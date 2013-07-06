@@ -11,6 +11,8 @@ Renegade::Application.routes.draw do
 		end
 	end
 	
+	resources :tags, only: :show
+	
 	resources :users
 	
 	resources :sessions, only: :create

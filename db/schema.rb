@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 20130704123208) do
   add_index "entities", ["space_id"], name: "index_entities_on_space_id"
 
   create_table "items", force: true do |t|
-    t.integer  "object_id"
-    t.string   "object_type"
+    t.integer  "item_id"
+    t.string   "item_type"
     t.integer  "user_id"
     t.integer  "room_id"
     t.text     "message"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20130704123208) do
     t.integer  "visitors_count", default: 0
   end
 
-  add_index "items", ["object_id", "object_type"], name: "index_items_on_object_id_and_object_type"
+  add_index "items", ["item_id", "item_type"], name: "index_items_on_item_id_and_item_type"
   add_index "items", ["room_id"], name: "index_items_on_room_id"
   add_index "items", ["user_id"], name: "index_items_on_user_id"
 

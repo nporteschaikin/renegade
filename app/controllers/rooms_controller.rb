@@ -21,7 +21,7 @@ class RoomsController < ApplicationController
 	
 	def show
 		@room = object.find_by_slug_and_visit(params[:id], request)
-		@item = Item.new room: @room
+		@item = Item.new room: @room if signed_in?
 	end
 	
 	private
