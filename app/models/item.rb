@@ -5,7 +5,7 @@ class Item < ActiveRecord::Base
 	include Comments::Relationship
 	include Visible
 	
-	belongs_to :room
+	belongs_to :room, inverse_of: :items
 	belongs_to :item, polymorphic: true
 	
 	default_scope {includes(:item).order("id DESC")}
@@ -16,5 +16,9 @@ class Item < ActiveRecord::Base
 	validates :item, uniqueness: { scope: :room }
 	
 	before_validation do; self.taggable = self.message; end
+	
+	before_save do
+		self.published = 0 if self.room.moderated
+	end
 
 end

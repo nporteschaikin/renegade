@@ -1,0 +1,4 @@
+= form_for [parent, child], remote: true, html: {class: 'comments'} do |f|
+	= f.hidden_field :in_reply_to_id
+	= f.text_area :comment
+	= f.button type: :submit

@@ -5,6 +5,7 @@ class CreateRooms < ActiveRecord::Migration
       t.string :slug
       t.string :name
       t.text :description
+      t.boolean :moderated, default: false
 
       t.timestamps
     end

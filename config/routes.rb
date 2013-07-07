@@ -12,8 +12,16 @@ Renegade::Application.routes.draw do
 	end
 	
 	resources :tags, only: :show
-	resources :items, only: :show
-	resources :comments, only: :show
+	
+	resources :items, only: :show do
+		resources :comments, only: [:index, :create]
+	end
+	
+	resources :comments, only: [:show, :create] do
+		member do
+			get 'reply'
+		end
+	end
 	
 	resources :users
 	

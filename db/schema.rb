@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20130706203237) do
     t.string   "item_type"
     t.integer  "user_id"
     t.integer  "room_id"
+    t.boolean  "published",      default: true
     t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -98,6 +99,7 @@ ActiveRecord::Schema.define(version: 20130706203237) do
     t.string   "slug"
     t.string   "name"
     t.text     "description"
+    t.boolean  "moderated",      default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "visitors_count", default: 0

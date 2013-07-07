@@ -1,0 +1,2 @@
+var comment = _.$('comments:parent/comments:comment').filter('[data-comment=<%= @comment.id %>]');
+if (!comment.next(_.e('comments:form')).length) comment.after('<%= escape_javascript(render 'form', parent: @parent, child: @child) %>')

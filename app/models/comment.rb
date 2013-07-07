@@ -7,5 +7,7 @@ class Comment < ActiveRecord::Base
 	default_scope {order('created_at DESC')}
 	
 	validates :commented, presence: true
+	validates :user, presence: true
+	validates :comment, length: { in: 1..250 }
 	
 end

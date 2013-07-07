@@ -1,7 +1,6 @@
-%article
+%article{data: {comment: comment.id}}
 	= simple_format comment.comment
 	%aside
-		= raw "#{link_to comment.user.username, comment.user} posted this #{link_to time_ago_in_words(comment.created_at), comment} ago"
-- if comment.comments.any?
-	%section
-		= render comment.comments
+		= raw "#{link_to comment.user.username, comment.user} posted this #{link_to time_ago_in_words(comment.created_at), comment} ago (#{link_to 'reply', reply_comment_path(comment), remote: true})"
+%section{data: {comment: comment.id}}
+	= render comment.comments if comment.comments

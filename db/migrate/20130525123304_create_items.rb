@@ -4,6 +4,7 @@ class CreateItems < ActiveRecord::Migration
       t.references :item, index: true, polymorphic: true
       t.references :user, index: true
       t.references :room, index: true
+      t.boolean :published, default: true
       t.text :message
 
       t.timestamps

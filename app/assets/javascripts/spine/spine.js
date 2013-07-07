@@ -43,6 +43,10 @@
 		unique: function (name) {
 			if (typeof name != 'string') return false;
 			return name + Math.ceil(Math.random()*1000);
+		},
+		
+		dataAttr: function (attr, value) {
+			return '[data-' + this.a(attr) + '="' + value + '"]';
 		}
 	
 	};

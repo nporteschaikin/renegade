@@ -77,32 +77,47 @@ section {
 			}
 		}
 		section {
-			padding: {
+			margin: {
 				left: $margin-c;
 			}
 		}
 	}
 }
 
-.composer {
-	background: $concrete;
-	padding: $margin-b;
-	section {
-		@include prefixer(border-radius, 5px);
-		border: 3px solid $asbestos;
-		background: $white;
+form {
+	&.comments {
+		background: $concrete;
+		padding: $margin-b;
+		textarea {
+			@include prefixer(border-radius, 5px);
+			width: 100%;
+			margin: 0;
+			border: 3px solid $asbestos;
+			background: $white;
+			padding: $input-padding;
+			display: block;
+		}
 	}
-	input, textarea {
-		width: 100%;
-		margin: 0;
-		border: 0;
-		background: transparent;
-		padding: $input-padding;
-		display: block;
-	}
-	input {
-		border: {
-			bottom: 1px solid $silver;
+	&.composer {
+		background: $concrete;
+		padding: $margin-b;
+		section {
+			@include prefixer(border-radius, 5px);
+			border: 3px solid $asbestos;
+			background: $white;
+		}
+		input, textarea {
+			width: 100%;
+			margin: 0;
+			border: 0;
+			background: transparent;
+			padding: $input-padding;
+			display: block;
+		}
+		input {
+			border: {
+				bottom: 1px solid $silver;
+			}
 		}
 	}
 }
