@@ -1,6 +1,7 @@
 class RoomsController < ApplicationController
 	
 	include Filters
+	include ActionController::Live
 	
 	def new; @room = object.new(params[:room]); end
 	
