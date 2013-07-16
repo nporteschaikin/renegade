@@ -19,7 +19,10 @@ class User < ActiveRecord::Base
 	validates :email, presence: true, email: true, uniqueness: { case_sensitive: false }
 	validates :password, on: :create, presence: true, length: { minimum: 6 }
 	validates :password_confirmation, on: :create, presence: true
-    
+	
+	def notify(user, object, action); Notification.create(self, user, object, action); end
+	def notifications; Notification.all self; end
+	
 	private
   
 		def create_remember_token
