@@ -1,4 +1,4 @@
-@mixin prefixer($attribute, $value) {
+@mixin prefixer($attribute, $value...) {
 	-moz-#{$attribute}: $value;
 	-webkit-#{$attribute}: $value;
 	-o-#{$attribute}: $value;
