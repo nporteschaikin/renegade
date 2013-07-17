@@ -15,50 +15,9 @@ body, input, textarea {
 
 h2 {
 	font: {
-		size: 24px;
-		weight: 700;
+		size: $font-size-d;
 	}
 	line: {
-		height: 34px;
-	}
-}
-
-h3 {
-	font: {
-		size: 18px;
-		weight: 200;
-	}
-	line: {
-		height: 25px;
-	}
-}
-
-aside {
-	font: {
-		size: 11px;
-		weight: 100;
-	}
-	line {
-		height: 1;
-	}
-	a {
-		text: {
-			decoration: underline;
-		}
-	}
-}
-
-section {
-	&.items {
-		article {
-			&:first-child {
-				font: {
-					size: 15px;
-				}
-				line: {
-					height: 21px;
-				}
-			}
-		}
+		height: $line-height-d;
 	}
 }

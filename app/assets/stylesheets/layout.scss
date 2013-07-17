@@ -5,139 +5,21 @@
 	outline: none;
 }
 
+body, html {
+	height: 100%;
+}
+
 body {
-	background: $clouds;
-	color: $black;
-	&.rooms.show {
-		padding: {
-			top: 58px;
-		}
-	}
+	background: #f1f1f1;
 }
 
 a {
-	color: $black;
-	text-decoration: none;
+	color: #000;
+	text: { decoration: none; }
 }
 
-section {
-	&.items {
-		> section {
-			position: relative;
-		}
-		article {
-			padding: $margin-b;
-			&:first-child {
-				background: $white;
-				position: absolute;
-				left: 0;
-				top: 0;
-				height: 100%;
-				width: $item-info-width;
-				font: {
-					size: 11px;
-				}
-				border: {
-					bottom: 1px solid $clouds;
-				}
-			}
-			+ article {
-				padding: $margin-b;
-				padding: {
-					left: $item-info-width + $margin-b;
-				}
-				border: {
-					bottom: 1px solid $silver;
-				}
-			}
-		}
-		p {
-			padding: 0;
-			margin: 0 0 $margin-a/2 0;
-		}
-		h3 {
-			margin: {
-				bottom: $margin-a;
-			}
-		}
-		h2, p {
-			a {
-				text: {
-					decoration: underline;
-				}
-			}
-		}
-	}
-	&.comments {
-		article {
-			padding: $margin-b;
-			background: $white;
-			margin: {
-				bottom: 1px;
-			}
-		}
-		section {
-			margin: {
-				left: $margin-c;
-			}
-		}
-	}
-}
-
-form {
-	&.comments {
-		background: $concrete;
-		padding: $margin-b;
-		textarea {
-			@include prefixer(border-radius, 5px);
-			width: 100%;
-			margin: 0;
-			border: 3px solid $asbestos;
-			background: $white;
-			padding: $input-padding;
-			display: block;
-		}
-	}
-	&.composer {
-		background: $concrete;
-		padding: $margin-b;
-		section {
-			@include prefixer(border-radius, 5px);
-			border: 3px solid $asbestos;
-			background: $white;
-		}
-		input, textarea {
-			width: 100%;
-			margin: 0;
-			border: 0;
-			background: transparent;
-			padding: $input-padding;
-			display: block;
-		}
-		input {
-			border: {
-				bottom: 1px solid $silver;
-			}
-		}
-	}
-}
-
-header {
-	@extend %position-fixed;
-	top: 0;
-	z-index: 10;
-	width: 100%;
-	background: $black;
-	padding: $margin-a $margin-b;
-	color: $white;
-	hgroup {
-		h2 {
-			margin: {
-				right: $margin-a;
-			}
-		}
-		h2, h3 {
-			display: inline-block;
-		}
+h1, h2, h3, h4, h5 {
+	margin: {
+		bottom: $margin-a;
 	}
 }

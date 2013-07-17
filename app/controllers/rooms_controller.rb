@@ -5,6 +5,10 @@ class RoomsController < ApplicationController
 	
 	def new; @room = object.new(params[:room]); end
 	
+	def index
+		@rooms = Room.find :all
+	end
+	
 	def create
 		@room = current_user.rooms.new(params[:room])
 		@room.save ? redirect_to(items_link_path(@link)) : render('new')

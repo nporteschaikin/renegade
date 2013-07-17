@@ -1,32 +1,10 @@
-$container-width: 1024px;
-$nav-width: 300px;
+$font-size-a: 12px;
+$line-height-a: 15px;
 
-$item-info-width: 300px;
-$input-padding: 5px 8px;
+$font-size-d: 25px;
+$line-height-d: 30px;
+
+$white: #fff;
 
 $margin-a: 12px;
-$margin-b: $margin-a * 2;
-$margin-c: $margin-a * 3;
-$margin-d: $margin-a * 4;
-
-/* white, black */
-$white: #fff;
-$black: #1a1a1a;
-
-/* light grays */
-$clouds: #ECF0F1;
-$silver: #BDC3C7;
-
-/* dark grays */
-$concrete: #95A5A6;
-$asbestos: #7F8C8D;
-
-/* dark blues */
-$wetasphalt: #34495E;
-$midnightblue: #2C3E50;
-
-/* light yellows */
-$sunflower: #F1C40F;
-
-/* light greens */
-$emerald: #2ECC71;
+$margin-b: 24px;

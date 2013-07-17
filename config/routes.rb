@@ -24,6 +24,11 @@ Renegade::Application.routes.draw do
 	end
 	
 	resources :users
+	resources :notifications, only: :index do
+		collection do
+			get 'events'
+		end
+	end
 	
 	resources :sessions, only: :create
 	get '/in' => 'sessions#new'
