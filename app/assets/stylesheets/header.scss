@@ -1,0 +1,17 @@
+@import 'core/*';
+
+#header {
+	@extend %position-fixed;
+	padding: $margin-c;
+	width: 100%;
+	nav {
+		@extend %nav-x;
+	}
+	li {
+		padding: $margin-a/2 $margin-a;
+		background: $white;
+		margin: {
+			right: $margin-a;
+		}
+	}
+}

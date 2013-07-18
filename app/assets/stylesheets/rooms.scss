@@ -4,20 +4,14 @@ section {
 	
 	&.rooms {
 		@extend %inline-block-parent;
+		@extend %vertical-center;
 		height: 100%;
 		> section {
 			@extend %inline-block;
-			@extend %vertical-center;
-			vertical: { align: top; }
-			position: relative;
-			width: 25%;
-			height: 100%;
+			vertical: { align: middle; }
+			width: 20%;
 			padding: $margin-b;
-			border: { right: 1px solid $white }
-			&:hover {
-				background: #000;
-				color: #fff;
-			}
+			position: relative;
 		}
 		a {
 			@extend %full-size-link;

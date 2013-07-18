@@ -12,7 +12,7 @@ module RedisMethods
 		$redis.srem(self.rkey(key), value)
 	end
 	
-	def smembers(key, value)
+	def smembers(key)
 		$redis.smembers(self.rkey(key))
 	end
 	

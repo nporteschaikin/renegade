@@ -1,0 +1,7 @@
+- content_for :header do
+	- if signed_in?
+		%nav
+			%ul
+				- current_user.opened(:rooms).each do |room|
+					%li
+						= link_to room.name, room

@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 	
 	has_many :following, class_name: "Relationship"
 	include Followable
+	include Open
 	
 	include Spaces::Relationship
 

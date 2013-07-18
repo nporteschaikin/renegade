@@ -1,6 +1,4 @@
-module Sessions
-	
-	extend ActiveSupport::Concern
+module SessionsHelper
 	
 	def sign_in(user)
 		cookies.permanent[:remember_token] = user.remember_token
