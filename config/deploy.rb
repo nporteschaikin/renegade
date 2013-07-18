@@ -12,4 +12,4 @@ set :deploy_to, "/apps/renegade"
 set :ssh_options, { forward_agent: true }
 
 role :web, "205.186.136.165"
-role :app, "205.186.136.165"å
+role :app, "205.186.136.165"
