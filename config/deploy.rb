@@ -1,4 +1,3 @@
-require "puma/capistrano"
 require "bundler/capistrano"
 require "rvm/capistrano"
 
@@ -10,7 +9,13 @@ set :application, "renegade"
 set :repository,  "git@github.com:nporteschaikin/renegade.git"
 set :user, "deploy"
 set :deploy_to, "/apps/renegade"
-set :ssh_options, { :forward_agent => true }
+set :ssh_options, { forward_agent: true }
 
 role :web, "205.186.136.165"
 role :app, "205.186.136.165"
+
+after "deploy:update_code", "restart_unicorn"
+
+task :restart_unicorn, roles: :app do
+	run "cd #{current_path} && bundle exec unicorn_rails -p 5000 -D -E production"
+end
