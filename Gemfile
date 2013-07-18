@@ -17,7 +17,9 @@ end
 group :development do
 	gem 'thin'
 end
+group :production do
+	gem 'unicorn'
+end
 gem 'haml-rails'
 gem 'jquery-rails'
-# gem 'turbolinks'
 gem 'jbuilder', '~> 1.0.1'
