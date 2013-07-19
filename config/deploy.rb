@@ -11,6 +11,7 @@ set :user, "deploy"
 set :deploy_to, "/apps/renegade"
 set :ssh_options, { forward_agent: true }
 set :normalize_asset_timestamps, false
+set :keep_releases, 5
 
 role :web, "205.186.136.165"
 role :app, "205.186.136.165"
