@@ -15,13 +15,13 @@ module Items
 			
 			def is_openable_url
 				begin
-					self.response = open(self.url)
+					self.response = open(self.url).read
 				rescue OpenURI::HTTPError
 					errors.add(:url, "is inaccessible")
 				rescue RuntimeError
 					url = URI.parse(self.url)
 					url.scheme = 'https'
-					self.response = open(url)
+					self.response = open(url).read
 				end
 			end
 			
