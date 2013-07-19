@@ -6,8 +6,9 @@ section {
 		@extend %inline-block-parent;
 		width: 100%;
 		padding: $margin-a;
-		@include prefixer(column-count, 4);
+		@include prefixer(column-count, 3);
 		> section {
+			@extend %no-transition;
 			vertical: {align: top;}
 			width: 100%;
 			padding: $margin-a;

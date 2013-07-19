@@ -3,4 +3,5 @@
 	-webkit-#{$attribute}: $value;
 	-o-#{$attribute}: $value;
 	-ms-#{$attribute}: $value;
+	#{$attribute}: $value;
 }
