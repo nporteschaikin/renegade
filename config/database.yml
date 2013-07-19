@@ -9,7 +9,7 @@ development:
 production:
   adapter: mysql2
   database: renegade_production
-  username: renegade_noah
-  password: Quails22#!
+  username: noah
+  password: production
   host: 127.0.0.1
   port: 3306
