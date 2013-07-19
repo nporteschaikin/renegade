@@ -21,6 +21,7 @@
 	}
 	> article,
 	> section {
+		@extend %inline-block;
 		font: {
 			size: $font-size-a;
 		}
@@ -28,6 +29,12 @@
 			height: $line-height-a;
 		}
 	}
+}
+
+%no-transition {
+	-webkit-transition: none;
+	-moz-transition: none;
+	transition: none;
 }
 
 %vertical-center {

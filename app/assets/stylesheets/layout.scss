@@ -12,16 +12,40 @@ body, html {
 }
 
 body {
-	background: #f1f1f1;
+	background: $white;
+	padding: {
+		top: ($margin-b*2) + $header-height;
+	}
 }
 
 a {
-	color: #000;
+	color: #34495E;
 	text: { decoration: none; }
+	&:hover {
+		text: { decoration: underline; }
+	}
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, p {
 	margin: {
 		bottom: $margin-a;
+	}
+}
+
+hgroup {
+	margin: {
+		bottom: $margin-a;
+	}
+	h1, h2, h3, h4, h5 {
+		margin: {
+			bottom: 0;
+		}
+	}
+}
+
+aside {
+	color: $silver;
+	a {
+		color: $concrete;
 	}
 }

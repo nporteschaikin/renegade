@@ -1,6 +1,6 @@
 %hgroup
 	%h2
 		= link_to site.title, url
-	%h3
+	%h6
 		= link_to site.source || URI.parse(url).normalize.host, url
-	= simple_format truncate(site.excerpt, omission: '...', length: 140)
+= simple_format truncate(site.excerpt, omission: '...', length: 140)

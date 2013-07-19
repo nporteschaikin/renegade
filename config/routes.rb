@@ -8,6 +8,7 @@ Renegade::Application.routes.draw do
 		end
 		member do
 			match 'composer/link', to: 'composer#link', via: :post
+			get 'close'
 		end
 	end
 	

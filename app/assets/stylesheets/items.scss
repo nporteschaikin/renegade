@@ -1,0 +1,30 @@
+@import 'core/*';
+
+section {
+	
+	&.items {
+		@extend %inline-block-parent;
+		width: 100%;
+		padding: $margin-a;
+		@include prefixer(column-count, 4);
+		> section {
+			vertical: {align: top;}
+			width: 100%;
+			padding: $margin-a;
+		}
+		article {
+			padding: $margin-a;
+			&:first-child {
+				background: $clouds;
+			}
+			+ article {
+				background: $emerald;
+				color: $clouds;
+				a {
+					color: $white;
+				}
+			}
+		}
+	}
+	
+}

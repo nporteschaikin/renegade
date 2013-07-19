@@ -1,8 +1,4 @@
-= render 'rooms/header'
+= render 'header', current: @room
 = provide(:title, @room.name)
-%header
-	%hgroup
-		%h2= @room.name
-		%h3= @room.slug
 = render 'composer/composer', object: @item if @item
 = render 'items/items', items: @room.items

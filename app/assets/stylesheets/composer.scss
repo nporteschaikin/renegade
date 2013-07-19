@@ -1,0 +1,11 @@
+@import 'core/*';
+
+section {
+	
+	&.composer {
+		@extend %position-fixed;
+		bottom: $margin-b;
+		right: $margin-b;
+	}
+	
+}

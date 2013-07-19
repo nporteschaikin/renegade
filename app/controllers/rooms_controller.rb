@@ -1,7 +1,7 @@
 class RoomsController < ApplicationController
 	
 	include Filters
-	include ActionController::Live
+	include Close
 	
 	def new; @room = object.new(params[:room]); end
 	
@@ -26,7 +26,7 @@ class RoomsController < ApplicationController
 	
 	def show
 		@room = object.find_by_slug_and_visit(params[:id], request)
-		current_user.open @room
+		current_user.open @room if signed_in?
 		@item = Item.new room: @room if signed_in?
 	end
 	
