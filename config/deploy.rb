@@ -13,8 +13,8 @@ set :ssh_options, { forward_agent: true }
 set :normalize_asset_timestamps, false
 set :keep_releases, 5
 
-role :web, "205.186.136.165"
-role :app, "205.186.136.165"
+role :web, "162.216.18.112"
+role :app, "162.216.18.112"
 
 namespace :deploy do
 	task :restart, except: { no_release: true } do
