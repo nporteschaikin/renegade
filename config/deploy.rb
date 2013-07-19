@@ -1,4 +1,3 @@
-require "puma/capistrano"
 require "bundler/capistrano"
 require "rvm/capistrano"
 
@@ -10,7 +9,7 @@ set :application, "renegade"
 set :repository,  "git@github.com:nporteschaikin/renegade.git"
 set :user, "deploy"
 set :deploy_to, "/apps/renegade"
-set :ssh_options, { :forward_agent => true }
+set :ssh_options, { forward_agent: true }
 
 role :web, "205.186.136.165"
 role :app, "205.186.136.165"
