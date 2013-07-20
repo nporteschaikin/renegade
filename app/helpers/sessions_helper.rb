@@ -36,6 +36,10 @@ module SessionsHelper
 			redirect_to in_path, notice: "Please sign in."
 		end
 	end
+	
+	def guest_user
+		redirect_to root_path if signed_in?
+	end
 
 	def redirect_back_or(default)
 		redirect_to(session[:return_to] || default)

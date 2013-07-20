@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
 	
+	before_filter :guest_user, only: [:new, :create]
+	before_filter :signed_in_user, only: [:destroy]
+	
 	def new; end
 	
 	def create
