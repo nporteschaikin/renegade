@@ -12,6 +12,14 @@ Renegade::Application.routes.draw do
 		end
 	end
 	
+	resources :users, except: :new do
+		# more here soon
+	end
+	
+	resources :spaces do
+		# more here soon
+	end
+	
 	resources :tags, only: :show
 	
 	resources :items, only: :show do
@@ -35,5 +43,7 @@ Renegade::Application.routes.draw do
 	get '/in' => 'sessions#new'
 	post '/in' => 'sessions#create'
 	delete '/out' => 'sessions#destroy'
+	
+	get '/up' => "users#new"
 	
 end

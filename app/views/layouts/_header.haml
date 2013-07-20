@@ -1,3 +1,25 @@
 %header#header
 	%div
-		= yield :header
+		%nav
+			%ul
+				%li.menu
+					= link_to "Home", root_path
+					%ul
+						%li
+							= link_to "Home", root_path
+						%li
+							= link_to "Rooms", rooms_path
+						%li
+							= link_to "Spaces", spaces_path
+		%nav
+			= yield :header
+		%nav
+			%ul
+				- if signed_in?
+					%li
+						= link_to current_user.username, current_user
+				- else
+					%li
+						= link_to "Sign In", in_path
+					%li
+						= link_to "Register", up_path

@@ -1,8 +1,7 @@
 - content_for :header do
 	- if signed_in?
-		%nav
-			%ul
-				- current_user.opened(:rooms).each do |room|
-					%li{class: (defined?(current) && current == room) ? "current" : "", data: {id: room.id}}
-						= link_to room.name, room
-						= link_to "Close", close_room_path(room), remote: true unless (defined?(current) && current == room)
+		%ul
+			- current_user.opened(:rooms).each do |room|
+				%li{class: (defined?(current) && current == room) ? "current" : "", data: {id: room.id}}
+					= link_to room.name, room
+					= link_to "Close", close_room_path(room), remote: true unless (defined?(current) && current == room)

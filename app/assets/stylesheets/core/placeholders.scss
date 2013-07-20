@@ -20,7 +20,8 @@
 		height: 0;
 	}
 	> article,
-	> section {
+	> section,
+	> nav {
 		@extend %inline-block;
 		font: {
 			size: $font-size-a;
