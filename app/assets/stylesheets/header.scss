@@ -15,6 +15,7 @@
 	}
 	nav {
 		@extend %nav-x;
+		vertical: { align: top; }
 	}
 	ul {
 		height: $header-height;
