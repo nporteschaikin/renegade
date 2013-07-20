@@ -2,6 +2,8 @@ worker_processes Integer(ENV["WEB_CONCURRENCY"] || 3)
 timeout 15
 preload_app true
 listen "/apps/renegade/shared/sockets/unicorn.sock"
+stderr_path "/apps/renegade/shared/log/unicorn.stderr.log"
+stdout_path "/apps/renegade/shared/log/unicorn.stdout.log"
 
 before_fork do |server, worker|
 	Signal.trap 'TERM' do
