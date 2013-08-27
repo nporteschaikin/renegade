@@ -5,6 +5,8 @@ class Item < ActiveRecord::Base
 	include Comments::Relationship
 	include Visible
 	
+	attr_accessor :entities
+	
 	belongs_to :room, inverse_of: :items
 	belongs_to :item, polymorphic: true
 	

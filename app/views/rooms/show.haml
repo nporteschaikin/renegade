@@ -1,4 +1,4 @@
-= render 'header', current: @room
-= provide(:title, @room.name)
-= render 'composer/composer', object: @item if @item
-= render 'items/items', items: @room.items
+- provide :title, @room.name
+= render 'cover', current: @room
+%section.main
+	= render 'items/items', items: @room.items

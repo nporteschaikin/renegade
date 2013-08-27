@@ -5,6 +5,8 @@ class Space < ActiveRecord::Base
 	include Users::Relationship
 	include Slug
 	
+	default_scope {includes(entities: [:entity])}
+	
 	has_many :entities, class_name: "Spaces::Entity"
 	has_many :users, through: :entities, source: :entity, source_type: "User"
 	has_many :rooms, through: :entities, source: :entity, source_type: "Room"

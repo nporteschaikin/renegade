@@ -1,51 +1,32 @@
 @import 'core/*';
 
 * {
-	@include prefixer(box-sizing, border-box);
-	outline: none;
-	@include prefixer(transition, background 0.25s ease-in, opacity 0.25s ease-in);
+  @include prefixer(box-sizing, border-box);
+}
+nav {
+  &.cover {
+    position: fixed;
+    width: $cover-portrait-width;
+    height: 100%;
+    background: red;
+    @include breakpoint(medium) {
+      position: static;
+      width: 100%;
+      height: $cover-landscape-height;
+    }
+  }
 }
 
-body, html {
-	height: 100%;
-	width: 100%;
-}
-
-body {
-	background: $white;
-	padding: {
-		top: $margin-b + $header-height;
-	}
-}
-
-a {
-	color: #34495E;
-	text: { decoration: none; }
-	&:hover {
-		text: { decoration: underline; }
-	}
-}
-
-h1, h2, h3, h4, h5, p {
-	margin: {
-		bottom: $margin-a;
-	}
-}
-
-hgroup {
-	margin: {
-		bottom: $margin-a;
-	}
-	h1, h2, h3, h4, h5 {
-		margin: {
-			bottom: 0;
-		}
-	}
-}
-
-aside {
-	color: $silver;
-	a {
-		color: $concrete;
-	}
+section {
+  &.main {
+    padding: {
+      top: $margin-b;
+      bottom: $margin-b;
+      right: $margin-b;
+      left: $cover-portrait-width + $margin-b;
+    }
+    @include breakpoint(medium) {
+      padding: $margin-b;
+    }
+  }
 }

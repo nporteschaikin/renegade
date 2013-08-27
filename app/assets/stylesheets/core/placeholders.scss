@@ -11,26 +11,26 @@
 	zoom: 1;
 	*display: inline;
 }
-
-%inline-block-parent {
-	font: {
-		size: 0;
-	}
-	line: {
-		height: 0;
-	}
-	> article,
-	> section,
-	> nav {
-		@extend %inline-block;
-		font: {
-			size: $font-size-a;
-		}
-		line: {
-			height: $line-height-a;
-		}
-	}
-}
+// 
+// %inline-block-parent {
+//  font: {
+//      size: 0;
+//  }
+//  line: {
+//      height: 0;
+//  }
+//  > article,
+//  > section,
+//  > nav {
+//      @extend %inline-block;
+//      font: {
+//          size: $font-size-a;
+//      }
+//      line: {
+//          height: $line-height-a;
+//      }
+//  }
+// }
 
 %no-transition {
 	-webkit-transition: none;
@@ -71,23 +71,4 @@
 	display: block;
 	width: 100%;
 	height: 100%;
-}
-
-%nav-x {
-	font: {
-		size: 0;
-	}
-	line: {
-		height: 0;
-	}
-	li {
-		@extend %inline-block;
-		@include prefixer(border-radius, 3px);
-		font: {
-			size: $font-size-a;
-		}
-		line: {
-			height: 1;
-		}
-	}
 }

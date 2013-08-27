@@ -1,7 +1,19 @@
 @mixin prefixer($attribute, $value...) {
-	-moz-#{$attribute}: $value;
-	-webkit-#{$attribute}: $value;
-	-o-#{$attribute}: $value;
-	-ms-#{$attribute}: $value;
-	#{$attribute}: $value;
+  -moz-#{$attribute}: $value;
+  -webkit-#{$attribute}: $value;
+  -o-#{$attribute}: $value;
+  -ms-#{$attribute}: $value;
+  #{$attribute}: $value;
+}
+
+@mixin breakpoint($point) {
+  @if $point == large {
+    @media (min-width: 1001px) { @content; }
+  }
+  @else if $point == medium {
+    @media (max-width: 1000px) { @content; }
+  }
+  @else if $point == small {
+    @media (max-width: 650px)  { @content; }
+  }
 }
